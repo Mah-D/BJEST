@@ -7,7 +7,7 @@ Options: ``` -n [#test cases] -s[size of test case]```
 ###1. Basic examples###
 
 1. #####atmTest#####
-has a withdraw function which simply receives two inputs namely 'balance' and 'amount' and decrements current balance by amount value and returns the new balance. The behavior we define here is just to make sure withdrawal amount is always less than the current balance i.e. the new balance never should be less than 0. We name this behavior atmTest() and pass it to BJEST along with number of tries and type of inputs, where here is non-negative numbers.
+has a withdraw function which simply receives two inputs namely 'balance' and 'amount' and decrements current balance by amount value and returns the new balance. The behavior we define here is just to make sure withdrawal amount is always less than the current balance i.e. the new balance never should be less than 0. We name this behavior ```atmTest()``` and pass it to BJEST along with number of tries and type of inputs, where here is non-negative numbers.
 
 2. #####divTest#####
 divTest.js defines the division operation on two given operands namely x and y. To check if division holds commutative behavior, we simply put a check to commutative behavior and BJest tests this behavior on integer types.
@@ -17,7 +17,7 @@ We defined our power operation and to check if it performs soundly. we define a 
 return the same value as power function in Javascript ```Math``` library. The original function has some bugs and we commented out four steps to make it correct.
 
 2. Supported Datatypes:
-To see examples for each datatypes run: $ node sampling.js
+To see examples for each datatypes run: ```$ node sampling.js```
 
 ###2. Basic Data types###
 
@@ -112,7 +112,7 @@ suchThat receives predicates. checkPredicate is a library that lets a developer 
 	- inclusion/exclusion
 	
 
-You can use predCheck even without BJEST, though the idea was to use it with suchThat(). Example:
+You can use predCheck even without BJEST, though the idea was to use it with ```suchThat()```. Example:
 	
 	var constraints = {
         creditCardNumber: {
