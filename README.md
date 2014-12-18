@@ -59,8 +59,8 @@ type. Run ```sampling.js``` to see a sample of all types.
 Bjest can also generate values for the following non-primitive datatypes:
 
 - arrayOf: receive a datatypes and generate array of give datatype.
-        bjest.sample(t.arrayOf( t.int)); //-> [ [ -1 ],[],[ -1, -2 ],[],[ -1, 1, 1 ],[ -1 ],[],
-        [ -4 ],[ 5, 3, 3, 2, 2 ],[ 0, -2, 0, 1 ] ]
+
+        bjest.sample(t.arrayOf( t.int)); //-> [ [ -1 ],[],[ -1, -2 ],[],[ -1, 1, 1 ],[ -1 ],[], [ -4 ],[ 5, 3, 3, 2, 2 ],[ 0, -2, 0, 1 ] ]
 
 - record: receive a list if different datatypes and generate value for each one in the given order.
         bjest.sample(t.record( [t.bool,t.int, t.string, t.char])); //-> [ [ true, 0, 'C', 'R' ],[ true, 0, '', 'p' ],
