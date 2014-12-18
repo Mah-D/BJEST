@@ -225,3 +225,6 @@ Now, tester can use genSchedule in a defined behavior like a built-in datatype:
     forAll([genShecule], 'Schedule is conflicting', function(schedule) {
         return schedule.isConflicting(schedule);});
         
+### 6. Contractify BJEST###
+
+In BJEST you could also add [contracts](http://en.wikipedia.org/wiki/Design_by_contract) in the form of pre/post conditions to your test cases. For example [conSort](https://github.com/Mah-D/BJEST/blob/master/Examples/conSubsetString.js) tests bubble sort with contracts and and [conSubsetString](https://github.com/Mah-D/BJEST/blob/master/Examples/conSubsetString.js) tests substring with contracts.
