@@ -101,11 +101,16 @@ Bjest can also generate values for the following non-primitive datatypes:
         var notEmptyArray = t.suchThat(isNotEmpty,t.arrayOf(t.char));
         
 suchThat receives predicates. checkPredicate is a library that lets a developer writes his constraints and and then you can check all these constraints against generated value. This can clearly show how random value generation is broken. Currently the following constraints are available:
+
 	- presence
+	
 	- length:		is, maximum, minimum
+	
 	- numericallity:		onlyInteger, greaterThan, greaterThanOrEqualTo, equalTo,lessThanOrEqualTo, lessThan, odd, even
 	- format:		[check against regular expression pattern]
+	
 	- inclusion/exclusion
+	
 
 You can use predCheck even without BJEST, though the idea was to use it with suchThat(). Example:
 	
