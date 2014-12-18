@@ -1,39 +1,27 @@
 {
-    "name": "bjest",
-    "version": "0.1.1",
-    "description": "Behavioral Conformance Testing for Javascript",
-    "keywords": [
-        "Javascript",
-        "Testing",
-        "Behavioral"
-    ],
-    "homepage": "",
-    "bugs": {
-        "url": ""
-    },
-    "license": "MIT",
-    "main": "main.js",
-    "repository": {
-        "type": "git",
-        "url": ""
-    },
-    "scripts": {
-        "test": "mocha"
-    },
-    "devDependencies": {
-        "mocha": "~1.21.4"
-    },
-    "dependencies": {
-        "commander": "~2.3.0",
-        "lodash": "~2.4.1",
-        "colors": "~0.6.2"
-    },
-    "bin": {
-        "bjest": "./bin/bjest.js"
-    },
-    "files": [
-        "main.js",
-        "bin",
-        "lib"
-    ]
+  "name": "BJEST",
+  "description": "Javascript Behavioral Conformance Testing with Contracts",
+  "version": "1.0",
+  "keywords": [
+    "Javascript BDD Testing",
+    "Conformance Testing",
+    "Predicate Testing",
+    "Design by Contract"
+  ],
+  "dependencies": {
+    "colors": "0.6.2",
+    "lodash": "2.4.1",
+    "commander": "2.3.0",
+    "mocha": "1.21.4"
+  },
+  "bugs": {
+    "web": "https://github.com/Mah-D/BJEST/issues"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/Mah-D/BJEST"
+    }
+  ],
+  "homepage": "https://github.com/Mah-D/BJEST"
 }
