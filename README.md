@@ -26,21 +26,33 @@ type. Run ```sampling.js``` to see a sample of all types.
 
 - int
 
-        bjest.sample(t.int);   		//->[ -1, 0, 2, -1, 0, 2, 3, 3, -2, -1 ]
+        bjest.sample(t.int);   			//->[ -1, 0, 2, -1, 0, 2, 3, 3, -2, -1 ]
         
 
 - int.positive
-        bjest.sample(t.int.positive); //->[ 2, 2, 1, 3, 1, 2, 5, 3, 2, 5 ]
+
+        bjest.sample(t.int.positive); 		//->[ 2, 2, 1, 3, 1, 2, 5, 3, 2, 5 ]
+        
 - int.nonNegative
-        bjest.sample(t.int.nonNegative); //->[ 1, 1, 0, 2, 0, 1, 4, 2, 1, 4 ]
+
+        bjest.sample(t.int.nonNegative); 	//->[ 1, 1, 0, 2, 0, 1, 4, 2, 1, 4 ]
+        
 - int.nonZero
-        bjest.sample(t.int.nonZero); //->[ 1, -1, 2, -2, -1, 3, -1, -3, 3, -1 ]
+
+        bjest.sample(t.int.nonZero); 		//->[ 1, -1, 2, -2, -1, 3, -1, -3, 3, -1 ]
+        
 - char
-        bjest.sample(t.char); //->[ '\\', 'p', '(', '}', '\'', 'A', 't', 'G', '3', 'k' ]
+
+        bjest.sample(t.char); 			//->[ '\\', 'p', '(', '}', '\'', 'A', 't', 'G', '3', 'k' ]
+        
 - string
-        bjest.sample(t.string)); //->[ 'p', '', '\'A', 'G3', 'B"_', '-', '/Z>', 'UU?', ']', ')?T/' ]
-    -bool
-        bjest.sample(t.bool); //-> [true, false, false, true, false, true, false, false, false, true ]
+
+        bjest.sample(t.string)); 		//->[ 'p', '', '\'A', 'G3', 'B"_', '-', '/Z>', 'UU?', ']', ')?T/' ]
+        
+- bool
+    
+        bjest.sample(t.bool); 			//-> [true, false, false, true, false, true, false, false, false, true ]
+
 
 ###3. Advanced Data typ###
 
