@@ -5,7 +5,7 @@ To run: run bjest in [NodeJs](http://nodejs.org/) and pass the target file.
 Options: ``` -n [#test cases] -s[size of test case]```
 
 ###1. Some examples###
-..1. atmTest
+..1. atmTest..
 ...atmTest.js has a withdraw function which simply receives two inputs namely 'balance' and 'amount' and decrements current balance by amount value and returns the new balance. The behavior we define here is just to make sure withdrawal amount is always less than the current balance i.e. the new balance never should be less than 0. We name this behavior atmTest() and pass it to BJest along with number of tries and type of inputs, where here is non-negative numbers.
 
 
