@@ -1,0 +1,39 @@
+{
+    "name": "bjest",
+    "version": "0.1.1",
+    "description": "Behavioral Conformance Testing for Javascript",
+    "keywords": [
+        "Javascript",
+        "Testing",
+        "Behavioral"
+    ],
+    "homepage": "",
+    "bugs": {
+        "url": ""
+    },
+    "license": "MIT",
+    "main": "main.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "devDependencies": {
+        "mocha": "~1.21.4"
+    },
+    "dependencies": {
+        "commander": "~2.3.0",
+        "lodash": "~2.4.1",
+        "colors": "~0.6.2"
+    },
+    "bin": {
+        "bjest": "./bin/bjest.js"
+    },
+    "files": [
+        "main.js",
+        "bin",
+        "lib"
+    ]
+}
