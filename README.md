@@ -5,10 +5,13 @@ To run: run bjest in [NodeJs](http://nodejs.org/) and pass the target file.
 Options: ``` -n [#test cases] -s[size of test case]```
 
 ###1. Basic examples###
+
 1. #####atmTest#####
 has a withdraw function which simply receives two inputs namely 'balance' and 'amount' and decrements current balance by amount value and returns the new balance. The behavior we define here is just to make sure withdrawal amount is always less than the current balance i.e. the new balance never should be less than 0. We name this behavior atmTest() and pass it to BJEST along with number of tries and type of inputs, where here is non-negative numbers.
+
 2. #####divTest#####
-divTest.js defines the division operation on two given operands namely x and y. To check if division holds commutative behavior, we simply put a check to commutative behavior and BJest tests this behavior on integer types
+divTest.js defines the division operation on two given operands namely x and y. To check if division holds commutative behavior, we simply put a check to commutative behavior and BJest tests this behavior on integer types.
+
 3. #####powerTest#####
 We defined our power operation and to check if it performs soundly. we define a behavior that a correct power function should
 return the same value as power function in Javascript ```Math``` library. The original function has some bugs and we commented out four steps to make it correct.
