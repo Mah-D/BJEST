@@ -63,18 +63,22 @@ Bjest can also generate values for the following non-primitive datatypes:
         bjest.sample(t.arrayOf( t.int)); //-> [ [ -1 ],[],[ -1, -2 ],[],[ -1, 1, 1 ],[ -1 ],[], [ -4 ],[ 5, 3, 3, 2, 2 ],[ 0, -2, 0, 1 ] ]
 
 - record: receive a list if different datatypes and generate value for each one in the given order.
+
         bjest.sample(t.record( [t.bool,t.int, t.string, t.char])); //-> [ [ true, 0, 'C', 'R' ],[ true, 0, '', 'p' ],
         [ false, -2, '', 'i' ],[ false, 1, '', '\\' ],[ true, -1, 'BJ', 'I' ],[ false, 0, '3G', 't' ], 
         [ true, 2, 'g', ';' ],[ false, -4, 'M', 't' ],[ false, -1, ';', '\'' ], [ false, 3, '2H=', '9' ] ]
 
 - oneOf: receive a list of types and generate value for any of the given types.
+
         bjest.sample(t.oneOf([t.bool, t.int]));//->[ true, -1, true, 0, false, false, true, false, false, 0 ]
         
 - elements: generate one of given elements.
+
         var shape = t.elements(['circle', 'rect', 'box']); bjest.sample(shape);
         //->[ 'box','circle','circle','circle','rect','circle','box','box','circle','rect' ]
 
 - entity: tries to mimic object concept. Given an entity, BJest generate values for its fields.
+
         var employee = t.entity({
             ID: t.int.positive,
             empName: t.string
@@ -85,23 +89,25 @@ Bjest can also generate values for the following non-primitive datatypes:
         { ID: 4, empName: 'y-b' },{ ID: 3, empName: 'lk' } ]
 
 - fmap: receive a function and a type and maps the given function to the generated value of the given type.
+
         var cubic = t.fmap(function(n) {
             return Math.pow(3, n);}, t.int.nonNegative);
             bjest.sample(cubic);//-> [ 1, 1, 9, 3, 27, 27, 9, 3, 81, 27 ]
             
+            
 - suchThat: receives a predicate and type and generated values of the given type that pass predicate. A common case could be generating nonempty array:
+
         function isNonempty(val) { return val.length > 0; }
         var notEmptyArray = t.suchThat(isNotEmpty,t.arrayOf(t.char));
-	suchThat receives predicates. checkPredicate is a library that lets a developer 	writes his constraints and and then you can check all these constraints against 	generated value. This can clearly show how random value generation is broken. 
-	Currently the following constraints are available:
+        
+suchThat receives predicates. checkPredicate is a library that lets a developer writes his constraints and and then you can check all these constraints against generated value. This can clearly show how random value generation is broken. Currently the following constraints are available:
 	- presence
 	- length:		is, maximum, minimum
 	- numericallity:		onlyInteger, greaterThan, greaterThanOrEqualTo, equalTo,lessThanOrEqualTo, lessThan, odd, even
 	- format:		[check against regular expression pattern]
 	- inclusion/exclusion
 
-	You can use predCheck even without BJEST, though the idea was to use it with suchThat(). Example:
-	
+You can use predCheck even without BJEST, though the idea was to use it with suchThat(). Example:
 	
 	var constraints = {
         creditCardNumber: {
@@ -151,6 +157,7 @@ I recommend to generate concrete values directly instead of filtering them. You 
 
 
 - append: from the family of fmap. Generate values for a given type, where generated value mapped to a sampled function. This is a powerful tool for building test cases of values you already have. Suppose you want to test a function like ```Array.prototype.indexOf``` and you want array with elements from the give array:
+
         var t = bjest.types;
         function isNotEmpty(val) { return val.length > 0; }
         // This gives you a nonempty arrays of char.
@@ -171,17 +178,19 @@ I recommend to generate concrete values directly instead of filtering them. You 
 
     
 ###4. API###
+
     -forAll([BJEST types], 'test cases behavior', function () {
     //predicate
     });
     
 generates values for arguments and check if the behavior holds with the passed number of testcases
 ```bjest.sample(datatypes, count)```
-    generate sample value for a given datatype. samoling.js uses this method.
+
+generate sample value for a given datatype. samoling.js uses this method.
 
 ### 5. Few interesting cases###
-Back to our employee enitity sample. Now image you want the age to be larger than 18. suchThat is not a good way, 
-    instead you can do the following:
+
+Back to our employee enitity sample. Now image you want the age to be larger than 18. suchThat is not a good way, instead you can do the following:
     
     var employeeGen = t.entity({
         name: t.string,
@@ -196,11 +205,11 @@ Back to our employee enitity sample. Now image you want the age to be larger tha
         }
     schedule.prototype.isConflicting = function([args]) { /* ... */ };
     
-To make a schedule, testee just need to generate beging and end time concrete values and passes them to the
-    constructor. Now tester can generate the values using record:
+To make a schedule, testee just need to generate beging and end time concrete values and passes them to the constructor. Now tester can generate the values using record:
     
     t.record([t.int.nonNegative,t.int.nonNegative]);
-    Then fmap over each generated time value:
+ 
+Then fmap over each generated time value:
 
     var genSchedule = t.fmap(function(record) {
       return new schedule(record[0], record[1]);},
