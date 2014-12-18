@@ -5,13 +5,10 @@ To run: run bjest in [NodeJs](http://nodejs.org/) and pass the target file.
 Options: ``` -n [#test cases] -s[size of test case]```
 
 ###1. Basic examples###
-
 1. #####atmTest#####
 has a withdraw function which simply receives two inputs namely 'balance' and 'amount' and decrements current balance by amount value and returns the new balance. The behavior we define here is just to make sure withdrawal amount is always less than the current balance i.e. the new balance never should be less than 0. We name this behavior atmTest() and pass it to BJEST along with number of tries and type of inputs, where here is non-negative numbers.
-
 2. #####divTest#####
-divTest.js defines the division operation on two given operands namely x and y. To check if division holds commutative behavior, we simply put a check to commutative behavior and BJest tests this behavior on integer types.
-
+divTest.js defines the division operation on two given operands namely x and y. To check if division holds commutative behavior, we simply put a check to commutative behavior and BJest tests this behavior on integer types
 3. #####powerTest#####
 We defined our power operation and to check if it performs soundly. we define a behavior that a correct power function should
 return the same value as power function in Javascript ```Math``` library. The original function has some bugs and we commented out four steps to make it correct.
@@ -19,7 +16,8 @@ return the same value as power function in Javascript ```Math``` library. The or
 2. Supported Datatypes:
 To see examples for each datatypes run: $ node sampling.js
 
-###2. Data types###
+###2. Basic Data types###
+
 BJEST can generate values for the following primitive datatypes. ```bjest.sample([type])```  will return a sample array of the given
 type. Run ```sampling.js``` to see a sample of all types.
 
@@ -37,9 +35,10 @@ type. Run ```sampling.js``` to see a sample of all types.
         -bjest.sample(t.string)); //->[ 'p', '', '\'A', 'G3', 'B"_', '-', '/Z>', 'UU?', ']', ')?T/' ]
     -bool
         bjest.sample(t.bool); //-> [true, false, false, true, false, true, false, false, false, true ]
-    
-    2.2 Advanced Datatypes
+###3. Advanced Data typ###
+
 Bjest can also generate values for the following non-primitive datatypes:
+
     -arrayOf: receive a datatypes and generate array of give datatype.
         -bjest.sample(t.arrayOf( t.int)); //-> [ [ -1 ],[],[ -1, -2 ],[],[ -1, 1, 1 ],[ -1 ],[],
         [ -4 ],[ 5, 3, 3, 2, 2 ],[ 0, -2, 0, 1 ] ]
@@ -71,9 +70,9 @@ Bjest can also generate values for the following non-primitive datatypes:
             return Math.pow(3, n);}, t.int.nonNegative);
             bjest.sample(cubic);//-> [ 1, 1, 9, 3, 27, 27, 9, 3, 81, 27 ]
             
-    -suchThat: receive a predicate and type and generated values of the given type that pass predicate.
+    -suchThat: receives a predicate and type and generated values of the given type that pass predicate.
         - a common case could be generating nonempty array:
-        function isNonempty(val) { return val.length > 0; }
+        'function isNonempty(val) { return val.length > 0; }
         var notEmptyArray = t.suchThat(isNotEmpty,t.arrayOf(t.char));
 	-suchThat receives predicates. checkPredicate is a library that lets a developer 	writes his constraints and and then you can check all these constraints against 	generated value. This can clearly show how random value generation is broken. 
 	Currently the following constraints are available:
