@@ -25,7 +25,9 @@ BJEST can generate values for the following primitive datatypes. ```bjest.sample
 type. Run ```sampling.js``` to see a sample of all types.
 
 - int
-        bjest.sample(t.int); //->[ -1, 0, 2, -1, 0, 2, 3, 3, -2, -1 ]
+- 
+        ```bjest.sample(t.int);   		//->[ -1, 0, 2, -1, 0, 2, 3, 3, -2, -1 ]```
+
 - int.positive
         bjest.sample(t.int.positive); //->[ 2, 2, 1, 3, 1, 2, 5, 3, 2, 5 ]
 - int.nonNegative
