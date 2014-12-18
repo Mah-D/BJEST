@@ -1,9 +1,9 @@
-BJest is a Behavioral Conformance Testing for Javascript.
-The idea is to help  testers to not to write testcases, instead define valid behaviors for the program under the test, and then
-BJest generates values to check if the defined behavior hold.
+BJest is a Behavioral Conformance Testing tool for Javascript.
+The idea is to help  testers to not to write testcases, instead, define valid behaviors in the form of predicate for the program under the test, and then BJest will generate values to check if the defined behavior holds.
 
-To run: run bjest in node and pass your test_file as an argument in command line 
-options: -n [#test cases] -s[size of test case]
+``` To run: run bjest in [NodeJs](http://nodejs.org/) and pass the target file  
+```         options: -n [#test cases] -s[size of test case]
+
 1.Some examples:
 
     1.1 atmTest:
